@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page">
+        <div class="login-box">
+            <h1>🎓 Quiz Master</h1>
+            <p>Test your programming knowledge</p>
+
+            <input type="email" id="email" placeholder="Enter Email ID">
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMessage"></p>
+        </div>
+    </div>
+
+
+    <!-- SUBJECT PAGE -->
+    <div id="subjectPage" class="page hidden">
+        <div class="container">
+
+            <div class="top-bar">
+                <h1>📚 Select Subject</h1>
+                <button class="logout" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="cards">
+
+                <div class="card" onclick="selectSubject('C Language')">
+                    <div class="icon">💻</div>
+                    <h2>C Language</h2>
+                    <p>Learn C programming</p>
+                </div>
+
+                <div class="card" onclick="selectSubject('Advanced Data Structure')">
+                    <div class="icon">🌳</div>
+                    <h2>Advanced Data Structure</h2>
+                    <p>Master ADS concepts</p>
+                </div>
+
+                <div class="card" onclick="selectSubject('Java')">
+                    <div class="icon">☕</div>
+                    <h2>Java</h2>
+                    <p>Test your Java knowledge</p>
+                </div>
+
+                <div class="card" onclick="selectSubject('Python')">
+                    <div class="icon">🐍</div>
+                    <h2>Python</h2>
+                    <p>Practice Python programming</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LEVEL PAGE -->
+    <div id="levelPage" class="page hidden">
+        <div class="container">
+
+            <button class="back-button" onclick="showPage('subjectPage')">
+                ← Back
+            </button>
+
+            <h1 id="selectedSubject">Select Level</h1>
+
+            <div class="level-container">
+
+                <div class="level easy" onclick="startQuiz('Easy')">
+                    <span>🟢</span>
+                    <h2>Easy</h2>
+                    <p>Basic questions</p>
+                    <strong>30 Questions</strong>
+                </div>
+
+                <div class="level medium" onclick="startQuiz('Medium')">
+                    <span>🟡</span>
+                    <h2>Medium</h2>
+                    <p>Intermediate questions</p>
+                    <strong>30 Questions</strong>
+                </div>
+
+                <div class="level hard" onclick="startQuiz('Hard')">
+                    <span>🔴</span>
+                    <h2>Hard</h2>
+                    <p>Advanced questions</p>
+                    <strong>30 Questions</strong>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- QUIZ PAGE -->
+    <div id="quizPage" class="page hidden">
+        <div class="quiz-container">
+
+            <div class="quiz-header">
+                <div>
+                    <span id="questionNumber">Question 1 / 30</span>
+                </div>
+
+                <div>
+                    Score: <span id="score">0</span>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <button id="nextButton" onclick="nextQuestion()" disabled>
+                Next →
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- RESULT PAGE -->
+    <div id="resultPage" class="page hidden">
+        <div class="result-box">
+
+            <h1>🎉 Quiz Completed!</h1>
+
+            <h2 id="resultSubject"></h2>
+            <h3 id="resultLevel"></h3>
+
+            <div class="final-score">
+                <span id="finalScore">0</span>
+                <small>Points</small>
+            </div>
+
+            <p>✅ Correct Answers: <strong id="correctAnswers">0</strong></p>
+            <p>❌ Wrong Answers: <strong id="wrongAnswers">0</strong></p>
+
+            <button onclick="showPage('subjectPage')">
+                🏠 Back to Subjects
+            </button>
+
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+  </html>
